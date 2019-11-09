@@ -207,9 +207,9 @@ def divspan(elem, doc):
 
     def example(): _nonnormative('example')
     def note():    _nonnormative('note')
-    def ednote():
-        _wrap(pf.Str("[ Editor's note: "), pf.Str(' ]'))
-        _color('0000ff')
+    def colornote(desc, color):
+        _wrap(pf.Str("[ {}: ".format(desc)), pf.Str(' ]'))
+        _color(color)
 
     def add(): _diff('addcolor', 'uline', 'ins')
     def rm():  _diff('rmcolor', 'sout', 'del')
@@ -231,10 +231,11 @@ def divspan(elem, doc):
             pf.debug('[WARNING] unknown stable name:', target)
             return targetlink
 
-    note_cls = next(iter(cls for cls in clses if cls in {'example', 'note', 'ednote'}), None)
+    note_cls = next(iter(cls for cls in clses if cls in {'example', 'note', 'ednote', 'draftnote'}), None)
     if note_cls == 'example':  example()
     elif note_cls == 'note':   note()
-    elif note_cls == 'ednote': ednote(); return
+    elif note_cls == 'ednote': colornote("Editor's note", '0000ff')
+    elif note_cls == 'draftnote': colornote('Drafting note', '01796F'); return
 
     diff_cls = next(iter(cls for cls in clses if cls in {'add', 'rm'}), None)
     if diff_cls == 'add':  add()
