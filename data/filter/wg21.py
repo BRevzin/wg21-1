@@ -231,11 +231,12 @@ def divspan(elem, doc):
             pf.debug('[WARNING] unknown stable name:', target)
             return targetlink
 
-    note_cls = next(iter(cls for cls in clses if cls in {'example', 'note', 'ednote', 'draftnote'}), None)
+    note_cls = next(iter(cls for cls in clses if cls in {'example', 'note', 'ednote', 'draftnote', 'draftnote-blue'}), None)
     if note_cls == 'example':  example()
     elif note_cls == 'note':   note()
     elif note_cls == 'ednote': colornote("Editor's note", '0000ff')
-    elif note_cls == 'draftnote': colornote('Drafting note', '01796F'); return
+    elif note_cls == 'draftnote': colornote('Drafting note', '01796F')
+    elif note_cls == 'draftnote-blue': colornote('Drafting note', '0000ff'); return
 
     diff_cls = next(iter(cls for cls in clses if cls in {'add', 'rm'}), None)
     if diff_cls == 'add':  add()
