@@ -116,6 +116,9 @@
       <item>co_await</item>
       <item>co_return</item>
       <item>co_yield</item>
+      <!-- Reflection -->
+      <item>reflexpr</item>
+      <item>unreflexpr</item>
       <!-- TM TS -->
       <!-- <list>atomic_cancel</list>
       <list>atomic_commit</list>
@@ -123,9 +126,10 @@
       <list>synchronized</list>
       <list>transaction_safe</list>
       <list>transaction_safe_dynamic</list> -->
-      <!-- module TS -->
-      <!-- <list>import</list>
-      <list>module</list> -->
+      <!-- module -->
+      <list>import</list>
+      <list>module</list>
+      <list>export</list>
     </list>
 
     <!-- 7.6 Attributes -->
